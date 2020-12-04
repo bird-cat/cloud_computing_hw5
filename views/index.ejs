@@ -1,0 +1,68 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Star Wars Quote App</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <body>
+    <h1 data-position="header">May Node and Express be with you</h1>
+    
+    <section data-position="add-quote">
+    <h2>Add quotes</h2>
+    <form action="/quotes" method="POST">
+      <input type="text" placeholder="name" name="name" /><br>
+      <input type="text" placeholder="quote" name="quote" /><br>
+      <button type="submit">Submit</button>
+    </form>
+    </section>
+
+    <section data-position="update-quote">
+    <div>
+      <h2>Updata quotes</h2>
+      <p>
+        Updata someone's quote
+      </p>
+      <input type="text" placeholder="name" id="updateName" name="updateName" /><br>
+      <input type="text" placeholder="new quote" id="updateQuote" name="updateQuote" /><br>
+      <button id="update-button">Update</button>
+    </div>
+    </section>
+    
+    <section data-position="delete-quote">
+    <div>
+      <h2>Remove quotes</h2>
+      <p>
+        Remove someone's quote
+      </p>
+      <input type="text" placeholder="name" id="deleteName" name="deleteName" /><br>
+      <button id="delete-button">Delete</button>
+    </div>
+    <div id="message"></div>
+    
+    </section>
+    
+    
+    <section data-position="quotes">
+    <h2>Quotes</h2>
+    
+    <ul class="quotes">
+      <!-- Loop through quotes -->
+      <% for (var i = 0; i < quotes.length; i++) {%>
+        <li class="quote">
+          <!-- Output name from the iterated quote object -->
+          <span><%=quotes[i].name %></span>:
+          <!-- Output quote from the iterated quote object -->
+          <span><%= quotes[i].quote %></span>
+        </li>
+      <% } %>
+    </ul>
+    </section>
+    
+    <!-- Add main.js file --> 
+    <script src="/main.js"></script>
+
+  </body>
+</html>
